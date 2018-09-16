@@ -20,7 +20,9 @@ branches:
 script: ./run_build.sh
 
 after_success:
-    # Creating report
+  - CODECOV_TOKEN="49a00069-6f64-4d23-8091-8b83d9207896" # does this work? 
+  
+  # Creating report
   - cd ${TRAVIS_BUILD_DIR}
   - lcov --directory . --capture --output-file coverage.info # capture coverage info
   - lcov --remove coverage.info '/usr/*' --output-file coverage.info # filter out system
